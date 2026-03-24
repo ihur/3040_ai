@@ -879,6 +879,13 @@
       opacity: 0;
     }
 
+    .slide.active>.float-icon {
+      animation-name: floatDrift !important;
+      animation-timing-function: linear !important;
+      animation-iteration-count: infinite !important;
+      opacity: 0.15 !important;
+    }
+
     .slide.active>*:nth-child(1) {
       animation-delay: 0.05s;
     }
@@ -903,8 +910,87 @@
 
   <div class="deck">
 
+    <!-- 0: WELCOME -->
+    <div class="slide s-title bg-purple active" style="position:relative;overflow:hidden;">
+      <style>
+        .float-icon {
+          position: absolute;
+          font-size: 36px;
+          opacity: 0.12;
+          pointer-events: none;
+          animation: floatDrift linear infinite;
+        }
+
+        @keyframes floatDrift {
+          0% {
+            transform: translateY(0) rotate(0deg);
+          }
+
+          50% {
+            transform: translateY(-30px) rotate(10deg);
+          }
+
+          100% {
+            transform: translateY(0) rotate(0deg);
+          }
+        }
+      </style>
+      <span class="float-icon" style="top:8%;left:8%;animation-duration:6s;">🤖</span>
+      <span class="float-icon"
+        style="top:15%;right:12%;animation-duration:7s;font-size:42px;animation-delay:-2s;">🧠</span>
+      <span class="float-icon" style="top:60%;left:5%;animation-duration:8s;animation-delay:-3s;">💬</span>
+      <span class="float-icon" style="top:70%;right:8%;animation-duration:5.5s;animation-delay:-1s;">🔮</span>
+      <span class="float-icon"
+        style="top:25%;left:18%;animation-duration:9s;animation-delay:-4s;font-size:28px;">📱</span>
+      <span class="float-icon" style="top:45%;right:15%;animation-duration:7.5s;animation-delay:-5s;">🌐</span>
+      <span class="float-icon"
+        style="top:80%;left:20%;animation-duration:6.5s;animation-delay:-2.5s;font-size:30px;">🎯</span>
+      <span class="float-icon"
+        style="top:10%;right:25%;animation-duration:8.5s;animation-delay:-6s;font-size:32px;">✨</span>
+      <span class="float-icon"
+        style="top:50%;left:25%;animation-duration:7s;animation-delay:-1.5s;font-size:26px;">⚡</span>
+      <span class="float-icon"
+        style="top:35%;right:5%;animation-duration:6.8s;animation-delay:-3.5s;font-size:34px;">🚀</span>
+
+      <div style="font-size:80px;margin-bottom:24px;position:relative;z-index:2;">👋</div>
+      <h1
+        style="background:linear-gradient(135deg, #fff 0%, var(--accent2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;position:relative;z-index:2;">
+        환영합니다</h1>
+      <p class="subtitle" style="position:relative;z-index:2;">AI 시대, 함께 배우고 함께 성장하는 시간</p>
+      <div
+        style="margin-top:24px;padding:16px 32px;background:rgba(124,111,247,0.1);border:1px solid rgba(124,111,247,0.3);border-radius:16px;font-size:20px;color:var(--accent2);font-weight:500;position:relative;z-index:2;">
+        요한지파 과천교회 부녀회
+      </div>
+    </div>
+
+    <!-- 0b: SPEAKER -->
+    <div class="slide bg-center">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center;">
+        <div
+          style="font-family:'Space Mono',monospace;font-size:14px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;">
+          Speaker</div>
+        <div
+          style="width:200px;height:200px;border-radius:50%;overflow:hidden;border:3px solid var(--border);box-shadow:0 0 40px rgba(124,111,247,0.2);">
+          <img src="inae.jpg" alt="허인애" style="width:100%;height:100%;object-fit:cover;"
+            onerror="this.parentElement.innerHTML='<div style=&quot;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:64px;background:rgba(124,111,247,0.1);&quot;>👩‍💻</div>'">
+        </div>
+        <div>
+          <div style="font-size:clamp(36px,4vw,52px);font-weight:900;color:var(--text);margin-bottom:4px;">허인애</div>
+          <div style="font-family:'Space Mono',monospace;font-size:16px;letter-spacing:2px;color:var(--muted);">INAE HUR
+          </div>
+        </div>
+        <div
+          style="width:50px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;">
+        </div>
+        <div style="font-size:20px;color:var(--text);font-weight:500;line-height:1.8;">
+          과천교회 부녀회<br>
+          <span style="color:var(--accent2);">사당지역 6팀 2구역</span>
+        </div>
+      </div>
+    </div>
+
     <!-- 1: TITLE -->
-    <div class="slide s-title bg-purple active">
+    <div class="slide s-title bg-purple">
       <div class="session-badge">SESSION 01</div>
       <h1>AI란<br>무엇인가?</h1>
       <p class="subtitle">역사부터 최신 트렌드까지 — 지금 세상에서 무슨 일이 일어나고 있는지 제대로 이해하기</p>
@@ -1168,7 +1254,8 @@
             <h3>왜 이렇게 똑똑해졌나</h3>
             <p>이전 AI는 단어를 <strong style="color:var(--accent2)">하나씩 순서대로</strong> 보는 속기사였어요. ChatGPT는 문장 전체를 한눈에 보는
               <strong style="color:var(--accent3)">편집자</strong>예요. "나는 <strong style="color:#fff">배</strong>가 고프다" vs
-              "나는 <strong style="color:#fff">배</strong>를 타고 떠났다" — 앞뒤를 동시에 보니 어떤 '배'인지 정확히 알아요. 이게 Attention의 힘이에요.</p>
+              "나는 <strong style="color:#fff">배</strong>를 타고 떠났다" — 앞뒤를 동시에 보니 어떤 '배'인지 정확히 알아요. 이게 Attention의 힘이에요.
+            </p>
           </div>
         </div>
 
